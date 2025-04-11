@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="MagoArab\RegionManager\Model\ResourceModel\City\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">directory_country_region_city</argument>
+            <argument name="resourceModel" xsi:type="string">MagoArab\RegionManager\Model\ResourceModel\City</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mago_city_listing_data_source" xsi:type="string">MagoArab\RegionManager\Model\ResourceModel\City\Grid\Collection</item>
+                <item name="mago_region_listing_data_source" xsi:type="string">Magento\Directory\Model\ResourceModel\Region\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="Magento\Directory\Model\ResourceModel\Region\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">directory_country_region</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Directory\Model\ResourceModel\Region</argument>
+        </arguments>
+    </virtualType>
+</config>

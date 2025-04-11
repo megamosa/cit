@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MagoArab\RegionManager\Api\Data\CityInterface" type="MagoArab\RegionManager\Model\City" />
+    <preference for="MagoArab\RegionManager\Api\CityRepositoryInterface" type="MagoArab\RegionManager\Model\CityRepository" />
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mago_city_listing_data_source" xsi:type="string">MagoArab\RegionManager\Model\ResourceModel\City\Grid\Collection</item>
+                <item name="mago_region_listing_data_source" xsi:type="string">Magento\Directory\Model\ResourceModel\Region\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="Magento\Directory\Model\ResourceModel\Region\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">directory_country_region</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Directory\Model\ResourceModel\Region</argument>
+        </arguments>
+    </virtualType>
+    
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="magoarab_add_custom_field" type="MagoArab\RegionManager\Plugin\Checkout\LayoutProcessorPlugin" sortOrder="10"/>
+    </type>
+    
+    <type name="Magento\Customer\Model\Address">
+        <plugin name="magoarab_save_custom_attributes" type="MagoArab\RegionManager\Plugin\Customer\SaveCustomAttributesPlugin" sortOrder="10"/>
+    </type>
+</config>

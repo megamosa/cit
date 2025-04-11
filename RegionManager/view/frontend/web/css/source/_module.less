@@ -1,0 +1,45 @@
+& when (@media-common = true) {
+    .search-select-field {
+        .select2-container {
+            width: 100% !important;
+            
+            .select2-selection {
+                height: 32px;
+                border-radius: 1px;
+                border-color: #c2c2c2;
+                
+                .select2-selection__rendered {
+                    line-height: 32px;
+                    padding-left: 8px;
+                }
+                
+                .select2-selection__arrow {
+                    height: 32px;
+                }
+            }
+        }
+        
+        .select2-dropdown {
+            border-color: #c2c2c2;
+            
+            .select2-search__field {
+                padding: 5px;
+                border-color: #c2c2c2;
+                border-radius: 1px;
+            }
+            
+            .select2-results__option {
+                padding: 6px 8px;
+                
+                &--highlighted {
+                    background-color: #eee;
+                    color: #333;
+                }
+                
+                &[aria-selected=true] {
+                    background-color: #ddd;
+                }
+            }
+        }
+    }
+}

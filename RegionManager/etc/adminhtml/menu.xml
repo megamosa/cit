@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MagoArab_RegionManager::regionmanager" title="Region Manager" translate="title" module="MagoArab_RegionManager" sortOrder="100" parent="Magento_Backend::stores" resource="MagoArab_RegionManager::regionmanager"/>
+        <add id="MagoArab_RegionManager::region" title="Manage States" translate="title" module="MagoArab_RegionManager" sortOrder="10" parent="MagoArab_RegionManager::regionmanager" action="mago_regionmanager/region" resource="MagoArab_RegionManager::region"/>
+        <add id="MagoArab_RegionManager::city" title="Manage Cities" translate="title" module="MagoArab_RegionManager" sortOrder="20" parent="MagoArab_RegionManager::regionmanager" action="mago_regionmanager/city" resource="MagoArab_RegionManager::city"/>
+    </menu>
+</config>
